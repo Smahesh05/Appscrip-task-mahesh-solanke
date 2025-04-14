@@ -112,6 +112,10 @@ hr {
   display: block;
 }
 
+.footer-links hr {
+  display: none;
+}
+
 @media (max-width: 600px) {
   .accordion-content {
     display: none;
