@@ -17,12 +17,9 @@
   align-items: flex-start;
 }
 
-.follow-footer-last {
-}
-
 .footer-column {
   flex: 1 1 20%;
-  margin: 20px;
+  /* margin: 20px; */
 }
 
 .footer-column h4 {
@@ -93,4 +90,43 @@ hr {
   font-size: 13px;
   color: #999;
   margin-top: 30px;
+}
+
+.footer-accordion .accordion-header {
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-accordion .chevron {
+  transition: transform 0.3s ease;
+  margin-left: 10px;
+}
+
+.footer-accordion .rotate {
+  transform: rotate(180deg);
+}
+
+.accordion-content {
+  display: block;
+}
+
+@media (max-width: 600px) {
+  .accordion-content {
+    display: none;
+  }
+
+  .accordion-content.open {
+    display: block;
+    margin-top: 10px;
+  }
+
+  .footer-column ul {
+    padding-left: 0;
+  }
+
+  .footer-links {
+    flex-direction: column;
+  }
 }

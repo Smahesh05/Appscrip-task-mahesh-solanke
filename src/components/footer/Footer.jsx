@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { FiInstagram, FiLinkedin } from "react-icons/fi";
 import GPAY from "../../assets/Group 136188.png";
 import MASTER from "../../assets/Group 136190.png";
@@ -9,6 +9,9 @@ import COLPAY from "../../assets/Group 136195.png";
 import "./Footer.css";
 
 function Footer() {
+  const [isMuseOpen, setMuseOpen] = useState(false);
+  const [isQuickLinksOpen, setQuickLinksOpen] = useState(false);
+
   return (
     <footer className="footer">
       <div className="footer-top">
@@ -48,9 +51,15 @@ function Footer() {
       {/* Footer Links */}
       <div className="footer-links">
         {/* Column 1: About */}
-        <div className="footer-column">
-          <h4>mettā muse</h4>
-          <ul>
+        <div className="footer-column footer-accordion">
+          <h4
+            className="accordion-header"
+            onClick={() => setMuseOpen(!isMuseOpen)}
+          >
+            mettā muse
+            <span className={`chevron ${isMuseOpen ? "rotate" : ""}`}>▼</span>
+          </h4>
+          <ul className={`accordion-content ${isMuseOpen ? "open" : ""}`}>
             <li>About Us</li>
             <li>Stories</li>
             <li>Artisans</li>
@@ -60,10 +69,17 @@ function Footer() {
           </ul>
         </div>
 
-        {/* Column 2: Quick Links */}
-        <div className="footer-column">
-          <h4>QUICK LINKS</h4>
-          <ul>
+        <div className="footer-column footer-accordion">
+          <h4
+            className="accordion-header"
+            onClick={() => setQuickLinksOpen(!isQuickLinksOpen)}
+          >
+            QUICK LINKS
+            <span className={`chevron ${isQuickLinksOpen ? "rotate" : ""}`}>
+              ▼
+            </span>
+          </h4>
+          <ul className={`accordion-content ${isQuickLinksOpen ? "open" : ""}`}>
             <li>Orders & Shipping</li>
             <li>Join/Login as a Seller</li>
             <li>Payment & Pricing</li>
@@ -74,7 +90,7 @@ function Footer() {
           </ul>
         </div>
 
-        {/* Column 3: Follow Us */}
+        <hr style={{ width: "100%" }} />
 
         <div className="footer-column">
           <div className="">
